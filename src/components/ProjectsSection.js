@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
+import "./ProjectsSection.css";
 // import project1Image from "../assets/project1.jpg"; // Replace with actual images
 // import project2Image from "../assets/project2.jpg";
 // import project3Image from "../assets/project3.jpg";

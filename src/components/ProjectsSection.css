@@ -1,0 +1,23 @@
+.project-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 24px;
+  }
+  
+  .project-card {
+    flex: 1 1 calc(33.333% - 24px); /* 3 cards per row */
+    box-sizing: border-box;
+  }
+  
+  /* Adjust for smaller screens */
+  @media (max-width: 768px) {
+    .project-card {
+      flex: 1 1 calc(50% - 24px); /* 2 cards per row */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .project-card {
+      flex: 1 1 100%; /* 1 card per row */
+    }
+  }
