@@ -18,7 +18,8 @@ const LandingPage = () => {
     >
       <div className="landing-content">
         <div className="landing-logo">
-            <h1>K</h1><h1 className="landing-logo-3">3</h1><h1 className="landing-logo-1">1</h1><h1 className="landing-logo-7">7</h1><h1>IN</h1>
+            {/* <h1>K</h1><h1 className="landing-logo-3">3</h1><h1 className="landing-logo-1">1</h1><h1 className="landing-logo-7">7</h1><h1>IN</h1> */}
+            <h1>K317IN</h1>
             </div>
         <p>The journey into my world.</p>
       </div>

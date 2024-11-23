@@ -65,7 +65,8 @@
   }
 
   .landing-content2 {
-    margin-top: 60%;
+    margin-top: 55%;
+    margin-bottom: 5%;
     font-size: 24px;
     animation: blink 2.5s infinite; 
     color: #ff119c;
