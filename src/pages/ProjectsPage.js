@@ -34,6 +34,7 @@ const ProjectsPage = () => {
   ];
 
   return (
+    <div className="projectpage-container">
     <section id="projects">
       <h2>My Projects</h2>
       <div className="project-grid">
@@ -42,6 +43,7 @@ const ProjectsPage = () => {
         ))}
       </div>
     </section>
+    </div>
   );
 };
 
