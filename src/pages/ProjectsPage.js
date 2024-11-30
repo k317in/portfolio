@@ -1,11 +1,11 @@
 import React from "react";
-import ProjectCard from "./ProjectCard";
-import "./ProjectsSection.css";
+import ProjectCard from "../components/ProjectCard";
+import "./ProjectsPage.css"
 // import project1Image from "../assets/project1.jpg"; // Replace with actual images
 // import project2Image from "../assets/project2.jpg";
 // import project3Image from "../assets/project3.jpg";
 
-const ProjectsSection = () => {
+const ProjectsPage = () => {
   const projects = [
     {
       title: "Membership Manager with QR Code Check-In",
@@ -45,4 +45,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export default ProjectsPage;

@@ -1,23 +1,13 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
-import AboutSection from "../components/AboutSection";
-import ProjectsSection from "../components/ProjectsSection";
-import ContactSection from "../components/ContactSection";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (
-    <div>
-      {/* Hero Section */}
-      <HeroSection />
-      
-      {/* About Section */}
-      <AboutSection />
-      
-      {/* Projects Section */}
-      <ProjectsSection />
-      
-      {/* Contact Section */}
-      <ContactSection />
+    <div className="homepage-container">
+    <div className="page">
+      <h1>Welcome to My Portfolio</h1>
+      <p>This is the home page of my portfolio website.</p>
+    </div>
     </div>
   );
 };

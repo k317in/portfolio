@@ -1,0 +1,24 @@
+.aboutpage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: black;
+  color: black;
+  text-align: center;
+  transition: opacity 1s ease-out; /* Smooth fade effect */
+  opacity: 1;
+  flex-direction: column;
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
