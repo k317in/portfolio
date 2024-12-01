@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: black;
+    background: white;
     color: black;
     text-align: center;
     transition: opacity 1s ease-out; /* Smooth fade effect */

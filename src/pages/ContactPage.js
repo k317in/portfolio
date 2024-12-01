@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ContactPage.css";
-
+import SubmitForm from "../components/SubmitForm";
 const ContactPage = () => {
     const [personalInfo, setPersonalInfo] = useState(null);
 
@@ -23,6 +23,7 @@ const ContactPage = () => {
     <div className="contactpage-container">
     <section id="contact">
       <h2>Contact Me</h2>
+      <SubmitForm></SubmitForm>
       {/* <form>
         <input type="text" placeholder="Your Name" required />
         <input type="email" placeholder="Your Email" required />
