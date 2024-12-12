@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./HomePage.css";
 import SwipeBackground from "../SwipeBackground";
+import { BackgroundContext } from "../BackgroundContext";
 
 const HomePage = () => {
+  const { backgroundInfo } = useContext(BackgroundContext);
+
   return (
     <SwipeBackground>
       <div className="homepage-container">
         <div className="page">
-          <h1>Welcome to My Portfolio</h1>
-          <p>This is the home page of my portfolio website.</p>
+          <h1>{backgroundInfo.title || "Loading..."}</h1>
+          <p>{backgroundInfo.description || ""}</p>
         </div>
       </div>
     </SwipeBackground>

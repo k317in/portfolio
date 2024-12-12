@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./AboutPage.css";
 import SwipeBackground from "../SwipeBackground";
+import { BackgroundContext } from "../BackgroundContext";
 
 const AboutPage = () => {
+    const { backgroundInfo } = useContext(BackgroundContext);
+
   return (
     <SwipeBackground>
-    <div className="aboutpage-container">
-    <div className="page">
-      <h1>About Me</h1>
-      <p>I am a web developer specializing in React and modern web technologies.</p>
-    </div>
-    </div>
+      <div className="aboutpage-container">
+        <div className="page">
+        <h1>{backgroundInfo.title || "Loading..."}</h1>
+        <p>{backgroundInfo.about || ""}</p>
+        </div>
+      </div>
     </SwipeBackground>
   );
 };

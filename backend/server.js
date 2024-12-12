@@ -1,51 +1,62 @@
-const express = require('express');
-const { google } = require('googleapis');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-require('dotenv').config();
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const stringify = require("csv-stringify");
 
 const app = express();
-
-
-const PORT = process.env.PORT || 5001;
-const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
+const PORT = 5001;
 
 // Middleware
-app.use(cors({ origin: CORS_ORIGIN }));
+app.use(cors());
 app.use(bodyParser.json());
 
-// Google Sheets Configuration
-const auth = new google.auth.GoogleAuth({
-  keyFile: process.env.GOOGLE_SERVICE_ACCOUNT_KEY, // Path to your Service Account JSON
-  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-});
+// CSV file path
+const csvFilePath = path.join(__dirname, "submissions.csv");
 
-const sheets = google.sheets({ version: 'v4', auth });
+// Ensure CSV file has headers (executed only once)
+if (!fs.existsSync(csvFilePath)) {
+  const headers = ["Name", "Email", "Contact Number", "Message"];
+  fs.writeFileSync(csvFilePath, headers.join(",") + "\n");
+}
 
-const SPREADSHEET_ID = process.env.SPREADSHEET_ID;; // Replace with your Google Sheet ID
-
-// Route to Add Data to Google Sheet
-app.post('/submit', async (req, res) => {
+// Endpoint to handle form submission
+app.post("/submit", (req, res) => {
   const { name, email, contactNumber, message } = req.body;
 
-  try {
-    const response = await sheets.spreadsheets.values.append({
-      spreadsheetId: SPREADSHEET_ID,
-      range: 'contactMe!A:D', // Adjust the range to match your sheet
-      valueInputOption: 'USER_ENTERED',
-      resource: {
-        values: [[name, email, contactNumber, message]],
-      },
-    });
+  // Prepare data row
+  const timestamp = new Date().toISOString();
+  const dataRow = [name, email, contactNumber, message, timestamp];
 
-    res.status(200).json({ message: 'Data submitted successfully!', response });
-  } catch (error) {
-    console.error('Error appending data to Google Sheets:', error);
-    res.status(500).json({ error: 'Failed to submit data' });
-  }
+  // Append data to CSV file
+  fs.appendFile(csvFilePath, dataRow.join(",") + "\n", (err) => {
+    if (err) {
+      console.error("Error writing to CSV file:", err);
+      return res.status(500).send("Failed to store data.");
+    }
+
+    res.status(200).send("Data saved successfully!");
+  });
 });
 
-// Start Server
+app.get("/download", (req, res) => {
+    const filePath = path.join(__dirname, "submissions.csv");
+    
+    // Ensure the file exists
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).send("File not found");
+    }
+  
+    res.download(filePath, "submissions.csv", (err) => {
+      if (err) {
+        console.error("Error downloading file:", err);
+        res.status(500).send("Error downloading file");
+      }
+    });
+  });
+
+// Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

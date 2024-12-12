@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
+import AdminPage from "./pages/AdminPage";
 import Navbar from "./components/Navbar";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/about" element={<><Navbar /><AboutPage /></>} />
             <Route path="/projects" element={<><Navbar /><ProjectsPage /></>} />
             <Route path="/contact" element={<><Navbar /><ContactPage /></>} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
     </Router>
     </BackgroundProvider>
