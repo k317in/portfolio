@@ -19,7 +19,7 @@ const AdminPage = () => {
   };
 
   const handleDownload = () => {
-    fetch("https://portfolio-plll.onrender.com/download")
+    fetch("/download")
       .then((response) => {
         if (response.ok) {
           return response.blob();

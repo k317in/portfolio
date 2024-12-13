@@ -6,7 +6,7 @@ const ContactPage = () => {
 
     useEffect(() => {
       // Fetch JSON from public folder
-      fetch("https://portfolio-plll.onrender.com/personalInfo.json")
+      fetch("/personalInfo.json")
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch personal info");
