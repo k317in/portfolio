@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // CSV file path
-const csvFilePath = path.join(__dirname, "submissions.csv");
+const csvFilePath = path.join(__dirname, "download", "submissions.csv");
 
 // Ensure CSV file has headers (executed only once)
 if (!fs.existsSync(csvFilePath)) {
@@ -41,7 +41,7 @@ app.post("/submit", (req, res) => {
 });
 
 app.get("/download", (req, res) => {
-    const filePath = path.join(__dirname, "submissions.csv");
+    const filePath = path.join(__dirname, "download", "submissions.csv");
     
     // Ensure the file exists
     if (!fs.existsSync(filePath)) {

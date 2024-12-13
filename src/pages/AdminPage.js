@@ -19,7 +19,9 @@ const AdminPage = () => {
   };
 
   const handleDownload = () => {
-    fetch("/download")
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    
+    fetch(`${backendUrl}/download`)
       .then((response) => {
         if (response.ok) {
           return response.blob();
