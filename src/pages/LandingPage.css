@@ -41,8 +41,6 @@
   }
 
   .landing-content2 {
-    margin-top: 55%;
-    /* margin-bottom: 5%; */
     font-size: 24px;
     opacity: 0;
     animation: blink 2.5s infinite;
@@ -62,3 +60,32 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .landing-content2 {
+      margin-top: 40%; /* Adjust for laptop screen */
+      font-size: 18px; /* Smaller font for smaller screens */
+    }
+  
+    .landing-content h1 {
+      font-size: 4rem; /* Adjust main heading size */
+    }
+  
+    .landing-content p {
+      font-size: 0.9rem; /* Adjust subtext size */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .landing-content2 {
+      margin-top: 30%;
+      font-size: 16px;
+    }
+  
+    .landing-content h1 {
+      font-size: 3rem;
+    }
+  
+    .landing-content p {
+      font-size: 0.8rem;
+    }
+  }

@@ -4,7 +4,7 @@ import "./ProjectCard.css"; // Import styles (optional)
 const ProjectCard = ({ title, description, techStack, demoLink, repoLink, image }) => {
   return (
     <div className="project-card">
-      <img src={image} alt={`${title} Screenshot`} className="project-card-image" />
+      {/* <img src={image} alt={`${title} Screenshot`} className="project-card-image" /> */}
       <div className="project-card-content">
         <h3 className="project-card-title">{title}</h3>
         <p className="project-card-description">{description}</p>

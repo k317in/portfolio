@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { BackgroundContext } from "./BackgroundContext";
 import { getContrastColor } from "./utils"; 
 
 const SwipeBackground = ({ children }) => {
   const { currentIndex, setBackground, backgroundInfo } = useContext(BackgroundContext);
+  const [startX, setStartX] = useState(null);
 
   const handleSwipe = (direction) => {
     const newIndex =
@@ -14,9 +15,28 @@ const SwipeBackground = ({ children }) => {
     setBackground(newIndex);
   };
 
+  const onMouseDown = (e) => {
+    setStartX(e.clientX);
+  };
+
+  const onMouseUp = (e) => {
+    if (startX === null) return;
+
+    const endX = e.clientX;
+    const diffX = startX - endX;
+
+    if (Math.abs(diffX) > 50) {
+      handleSwipe(diffX > 0 ? "left" : "right");
+    }
+
+    setStartX(null);
+  };
+
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => handleSwipe("left"),
     onSwipedRight: () => handleSwipe("right"),
+    preventScrollOnSwipe: true,
+    delta: 10,
   });
 
   const fontColor = backgroundInfo.fontColor || getContrastColor(backgroundInfo.color || "#FFFFFF");
@@ -24,6 +44,8 @@ const SwipeBackground = ({ children }) => {
   return (
     <div
       {...swipeHandlers}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
       style={{
         height: "100vh",
         width: "100vw",
