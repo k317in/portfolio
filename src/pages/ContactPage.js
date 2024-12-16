@@ -22,19 +22,15 @@ const ContactPage = () => {
   return (
     <div className="contactpage-container">
     <section id="contact">
-      <h2>Contact Me</h2>
+    <div className="contactCard">
+      <h2 className="contactCard_title">Contact Me</h2>
       <SubmitForm></SubmitForm>
-      {/* <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form> */}
-      <div className="contact-info">
+      </div>
+      {/* <div className="contact-info">
         <p><strong>Email:</strong> <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a></p>
         <p><strong>Phone:</strong> <a href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a></p>
         <p><strong>Address:</strong> {personalInfo.address}</p>
-      </div>
+      </div> */}
     </section>
     </div>
   );

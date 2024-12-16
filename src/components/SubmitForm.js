@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "../pages/ContactPage.css";
 
 
 const SubmitForm = () => {
@@ -30,7 +31,7 @@ const SubmitForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="card__form" onSubmit={handleSubmit}>
       <div>
         <label>Name:</label>
         <input
@@ -54,7 +55,7 @@ const SubmitForm = () => {
       <div>
         <label>Contact Number:</label>
         <input
-          type="text"
+          type="tel"
           name="contactNumber"
           value={formData.contactNumber}
           onChange={handleChange}
@@ -70,7 +71,7 @@ const SubmitForm = () => {
           required
         ></textarea>
       </div>
-      <button type="submit">Submit</button>
+      <button class="card__button" type="submit">Submit</button>
     </form>
   );
 };
