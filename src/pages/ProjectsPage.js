@@ -34,15 +34,13 @@ const ProjectsPage = () => {
   ];
 
   return (
-    <div className="projectpage-container">
-    <section id="projects">
-      <h2>My Projects</h2>
+    <div className="projectPage-container">
+    <h2>My Projects</h2>
       <div className="project-grid">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </div>
-    </section>
     </div>
   );
 };
