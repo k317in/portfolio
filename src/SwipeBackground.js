@@ -10,8 +10,8 @@ const SwipeBackground = ({ children }) => {
   const handleSwipe = (direction) => {
     const newIndex =
       direction === "left"
-        ? (currentIndex + 1) % 4
-        : (currentIndex - 1 + 4) % 4;
+        ? (currentIndex + 1) % 3
+        : (currentIndex - 1 + 3) % 3;
     setBackground(newIndex);
   };
 
@@ -41,6 +41,8 @@ const SwipeBackground = ({ children }) => {
 
   const fontColor = backgroundInfo.fontColor || getContrastColor(backgroundInfo.color || "#FFFFFF");
 
+  const backgroundPosition = backgroundInfo.backgroundPosition;
+
   return (
     <div
       {...swipeHandlers}
@@ -52,7 +54,7 @@ const SwipeBackground = ({ children }) => {
         backgroundColor: backgroundInfo.color,
         backgroundImage: `url(${backgroundInfo.backgroundImage})`,
         backgroundSize: "cover", // Adjust to "contain" if needed
-        backgroundPosition: "left",
+        backgroundPosition: backgroundPosition,
         color: fontColor,
         transition: "background-color 0.5s ease",
         overflow: "hidden",

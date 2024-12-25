@@ -1,27 +1,24 @@
 [
     {
-    "video": "/videos/web-developer.mp4",
+    "backgroundImage": "/images/web-developer.png",
     "title": "Web Developer",
     "description": "I build amazing websites.",
     "about": "I am a web developer with a strong foundation in modern web technologies, including React, CSS, JavaScript, and JSON. I follow a structured approach to web development, organizing projects into dedicated folders like pages for full pages and components for reusable elements. This ensures scalability and maintainability.",
-    "fontColor": "#FFFFFF"
+    "fontColor": "#FFFFFF",
+    "backgroundPosition": "top center"
     },
     {
-      "color": "#1E90FF",
+      "backgroundImage": "/images/barista.png",
       "title": "Barista",
       "description": "I make great coffee!",
-      "about": "As a barista, I have a passion for crafting exceptional coffee and delivering outstanding customer service. I thrive in fast-paced environments and enjoy connecting with customers to create a welcoming experience."
+      "about": "As a barista, I have a passion for crafting exceptional coffee and delivering outstanding customer service. I thrive in fast-paced environments and enjoy connecting with customers to create a welcoming experience.",
+      "backgroundPosition": "top center"
     },
     {
-      "color": "#FF6347",
-      "title": "Graphic Designer",
-      "description": "I create stunning visuals.",
-      "about": " "
-    },
-    {
-      "backgroundImage": "/images/photographer.png",
-      "title": "Photographer",
+      "backgroundImage": "/images/credit-controllor.png",
+      "title": "Credit Controllor",
       "description": "Capturing life's moments.",
-      "about": " "
+      "about": " ",
+      "backgroundPosition": "top center"
     }
   ]
