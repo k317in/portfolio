@@ -63,7 +63,7 @@ const SwipeBackground = ({ children }) => {
         left: 0,
         zIndex: -1,
       }}>
-        {backgroundInfo.video && (
+        {/* {backgroundInfo.video && (
         <video
           autoPlay
           muted
@@ -80,7 +80,7 @@ const SwipeBackground = ({ children }) => {
           }}
           src={backgroundInfo.video}
         ></video>
-      )}
+      )} */}
       {children}
     </div>
   );
